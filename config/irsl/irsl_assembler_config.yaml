@@ -16,7 +16,7 @@ GeneralSettings:
 ##   connecting-type-match-list:
 ##   connecting-configuration-list:
 ConnectingConstraintSettings:
-  connecting-type-list: [PC1, PC2, PC4, SC1, SC2, SC4, HORN, HORN-F2, HORN-F4, SERVO_SIDE, FRAME_F3_SERVO, FRAME, LEGO-2P, LEGO-2S, WHEEL_SHAFT, OMNI_WHEEL, HORN_X, ROTOR_X, SERVO_ASIDE_X, FRAME_ASIDE_X, SERVO_BSIDE_X, FRAME_BSIDE_X, SERVO_CSIDE_X, FRAME_CSIDE_X, GROVE_SENSOR, GROVE_MOUNTER]
+  connecting-type-list: [PC1, PC2, PC4, SC1, SC2, SC4, HORN, HORN-F2, HORN-F4, SERVO_SIDE, FRAME_F3_SERVO, FRAME, LEGO-2P, LEGO-2S, WHEEL_SHAFT, OMNI_WHEEL, HORN_X, ROTOR_X, SERVO_ASIDE_X, FRAME_ASIDE_X, SERVO_BSIDE_X, FRAME_BSIDE_X, SERVO_CSIDE_X, FRAME_CSIDE_X, SERVO_DSIDE_X, FRAME_DSIDE_X, GROVE_SENSOR, GROVE_MOUNTER]
   ## pair: [a, b] ## configuration represents transoform from a to b
   connecting-type-match-list:
     -
@@ -57,6 +57,9 @@ ConnectingConstraintSettings:
       allowed-configuration: [fixed]
     -
       pair: [FRAME_CSIDE_X, SERVO_CSIDE_X]
+      allowed-configuration: [fixed]
+    -
+      pair: [FRAME_DSIDE_X, SERVO_DSIDE_X]
       allowed-configuration: [fixed]
     -
       pair: [ROTOR_X, HORN_X]
@@ -148,7 +151,7 @@ PanelSettings: ## just for choreonoid
     - name: Sensor Parts
       parts: [sensor-mounter, grove-sensor-mounter, ultrasonic-sensor, tof-sensor, grove-color-sensor]
     - name: Special Parts
-      parts: [angle_2_2, plate_2_2_pp]
+      parts: [angle_2_2, plate_2_2_pp, cylinder_3, cylinder_5, cylinder_7, Gripper]
     - name: Servo Parts (AX-series)
       parts: [ax-12a, mx-12w, ax-12a-f2, ax-12a-f3, ax-12a-f3-p, ax-12a-f3-s, ax-12a-f3-s_3x3, FP04-F4, FP04-F4-P, FP04-F2-P, FP04-F2-S, FP04-F2-P_3x3, P04-F53, P04-F53-s, omni-shaft]
   combo_list: [ block_1_12, block_1_16, block_1_1_3, block_1_2_2, block_1_2_5, block_1_3_5, plate_2_12, plate_2_14, plate_2_16, plate_1_5, plate_1_10, plate_1_12, plate_3_3, plate_4_6, plate_4_10, plate_4_12, plate_6_6, plate_6_16, plate_8_8, plate_8_16, plate_16_16 ]
@@ -232,7 +235,7 @@ PartsSettings:
     connecting-points :
     -
         name: right-side
-        types: [SERVO_BSIDE_X]
+        types: [SERVO_BSIDE_X, SERVO_DSIDE_X]
         translation: [11.0, -32.0, 17.0]
         rotation: [0.0, 0.0, 1.0, 180.0]
     -
@@ -3739,7 +3742,113 @@ PartsSettings:
       types: [PC1]
       translation: [4.0, -11.1, 15.2]
       rotation: [1.0, 0.0, 0.0, 90.0]
-
+  -
+    type: cylinder_3
+    description: Cylinder block (3 blocks)
+    visual:
+      -
+        type: mesh
+        url: "meshes/cylinder_3_mm.stl"
+        scale : 0.001
+    collision:
+      -
+        type: mesh
+        url: "meshes/cylinder_3_mm.stl"
+        scale : 0.001
+    mass-param:
+      mass: 1.0
+      center-of-mass: [0 , 0 , 0 ]
+      inertia-tensor: [1,0,0,0,1,0,0,0,1]
+    connecting-points :
+    -
+      name: s_0_0
+      types: [SC1]
+      translation: [0.0, 0.0, 0.0]
+      rotation: [1.0, 0.0, 0.0, 0.0]
+    -
+      name: p_0_0
+      types: [PC1]
+      translation: [0.0, 0.0, 28.8]
+      rotation: [1.0, 0.0, 0.0, 0.0]
+  -
+    type: cylinder_5
+    description: Cylinder block (5 blocks)
+    visual:
+      -
+        type: mesh
+        url: "meshes/cylinder_5_mm.stl"
+        scale : 0.001
+    collision:
+      -
+        type: mesh
+        url: "meshes/cylinder_5_mm.stl"
+        scale : 0.001
+    mass-param:
+      mass: 1.0
+      center-of-mass: [0 , 0 , 0 ]
+      inertia-tensor: [1,0,0,0,1,0,0,0,1]
+    connecting-points :
+    -
+      name: s_0_0
+      types: [SC1]
+      translation: [0.0, 0.0, 0.0]
+      rotation: [1.0, 0.0, 0.0, 0.0]
+    -
+      name: p_0_0
+      types: [PC1]
+      translation: [0.0, 0.0, 48.0]
+      rotation: [1.0, 0.0, 0.0, 0.0]
+  -
+    type: cylinder_7
+    description: Cylinder block (7 blocks)
+    visual:
+      -
+        type: mesh
+        url: "meshes/cylinder_7_mm.stl"
+        scale : 0.001
+    collision:
+      -
+        type: mesh
+        url: "meshes/cylinder_7_mm.stl"
+        scale : 0.001
+    mass-param:
+      mass: 1.0
+      center-of-mass: [0 , 0 , 0 ]
+      inertia-tensor: [1,0,0,0,1,0,0,0,1]
+    connecting-points :
+    -
+      name: s_0_0
+      types: [SC1]
+      translation: [0.0, 0.0, 0.0]
+      rotation: [1.0, 0.0, 0.0, 0.0]
+    -
+      name: p_0_0
+      types: [PC1]
+      translation: [0.0, 0.0, 67.2]
+      rotation: [1.0, 0.0, 0.0, 0.0]
+  -
+    type: Gripper
+    description: Gripper sample
+    visual:
+      -
+        type: mesh
+        url: "meshes/gripper_mm.stl"
+        scale : 0.001
+    collision:
+      -
+        type: mesh
+        url: "meshes/gripper_mm.stl"
+        scale : 0.001
+    mass-param:
+      mass: 1.0
+      center-of-mass: [0 , 0 , 0 ]
+      inertia-tensor: [1,0,0,0,1,0,0,0,1]
+    connecting-points :
+    -
+      name: connect
+      types: [FRAME_DSIDE_X]
+      translation: [32.0, -11.0, 28.3]
+      rotation: [0.70710678118655, 0.70710678118655, 0,180]
   -
     type: plate_2_2_pp
     class: Double-sided socket plate (2 x 2)
